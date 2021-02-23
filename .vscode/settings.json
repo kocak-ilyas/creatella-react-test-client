@@ -1,0 +1,119 @@
+{
+    "workbench.colorCustomizations": {
+        "tab.border": "#19a6be", // colour of the border between opened tabs
+        "tab.activeBackground": "#e180e48c", // backgroud colour of the active file tab
+        "tab.inactiveBackground": "#676b7c", // bacground colour of inactive file tabs
+        "editorGroupHeader.tabsBackground": "#20222c", // background colour of the entire tab container that lives at the top
+        "editor.background": "#26283111", // backgroud colour of the code editor
+        "sideBar.background": "#383a342d", // background colour of the sidebar
+        "editorIndentGuide.activeBackground": "#9138e4b9", // colour of the indent guides
+        "editor.lineHighlightBackground": "#445ac92f", // border colour of the active line
+        "editorIndentGuide.background": "#d1913179", // colour of the active line
+        "sideBarSectionHeader.background": "#053d414d" // colour of the tabs in sidebar
+    },
+    // "editor.renderWhitespace": "none",   // removes whitespace chars
+    // "editor.hideCursorInOverviewRuler": true,   // hides cursor mark in the overview ruler
+    // "editor.folding": false,   // removes the folding feature
+    // "editor.glyphMargin": false, // removes the space used mainly for debugging indicators
+    "explorer.openEditors.visible": 0,
+    "editor.overviewRulerBorder": false,
+    // "workbench.editor.showIcons": true, // removes icon from opened files in tabs
+    // "editor.occurrencesHighlight": false,
+    "editor.minimap.enabled": false,
+    "editor.renderControlCharacters": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[bat]": {
+        "editor.defaultFormatter": "remimarsal.prettier-now"
+    },
+    "[ignore]": {
+        "editor.defaultFormatter": "remimarsal.prettier-now"
+    },
+    "[javascript]": {
+      // "editor.defaultFormatter": "vscode.typescript-language-features"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+  }, "[css]": {
+    "editor.defaultFormatter": "aeschli.vscode-css-formatter"
+  },
+    ////////////////////////
+    "editor.formatOnSave": true,
+    "eslint.autoFixOnSave": true,
+    "eslint.alwaysShowStatus": true,
+  
+         "files.autoSave": "onFocusChange",
+         "workbench.iconTheme": "vscode-icons",
+         "files.associations": {"*.js": "javascriptreact"},
+        //  "git.enableSmartCommit": true,
+        // "git.confirmSync": false,
+        // "git.autofetch": true,
+        // "explorer.confirmDelete": false,
+        "workbench.statusBar.visible": true,
+        "workbench.activityBar.visible": true,
+        "window.menuBarVisibility": "visible",
+        // "liveServer.settings.donotShowInfoMsg": true,
+        "extensions.autoUpdate": true,
+        // "explorer.confirmDragAndDrop": false,
+        "workbench.sideBar.location": "left",
+        "javascript.updateImportsOnFileMove.enabled": "always",
+        "workbench.startupEditor": "newUntitledFile",
+        // "editor.largeFileOptimizations": false,
+        "prettier.endOfLine": "auto",
+        "prettier.singleQuote": true,
+        "prettier.useTabs": true,
+        "prettier.requireConfig": true,
+        "editor.codeLensFontFamily": "Fira Code",
+  
+        ////////Arrow => === ok şekil ekleme////////
+        "editor.fontFamily": "Fira Code Retina",
+        "editor.fontLigatures": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+        },
+        ////////Arrow => === ok şekil ekleme////////
+  
+        // "git.confirmSync": false,
+        // "workbench.editor.enablePreview": false,
+        // "editor.fontWeight": "normal",
+        // "diffEditor.codeLens": true,
+        // "editor.inlineHints.fontFamily": "Fira Code",
+        // "terminal.integrated.fontFamily": "Fira Code",
+        // "editor.codeLensFontSize": 37,    
+        //     "editor.codeActionsOnSave": {"source.fixAll": true,
+        //       "source.fixAll.eslint": true,
+        //       "source.fixAll.tslint": true
+        //     },
+        //     "editor.defaultFormatter": "esbenp.prettier-vscode",
+        //     "eslint.workingDirectories": [{ "mode": "auto" }],
+        //     "eslint.options": {
+        //       "rules": {
+        //         "import/default": "error",
+        //         "import/export": "error",
+        //         "import/named": "error",
+        //         "import/namespace": "error",
+        //         "import/no-duplicates": "error",
+        //         "import/no-named-as-default": "error",
+        //         "import/no-named-as-default-member": "error",
+        //         "import/no-unresolved": "error"
+        //       }
+        //     },
+        // "javascript.format.enable": false,
+        //   "editor.tabSize": 2,
+        //   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+        //   "editor.autoClosingBrackets": "always",
+        //   "editor.autoClosingQuotes": "always",
+        //   "editor.definitionLinkOpensInPeek": true,
+        //   "vsicons.projectDetection.autoReload": true,
+        //   "prettier.trailingComma": "all"
+  
+  
+  }
