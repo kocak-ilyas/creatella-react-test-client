@@ -1,15 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-// import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+// import { BrowserRouter } from "react-router-dom";
+import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+// import "alertifyjs/build/css/alertify.min.css";
+import App from "./App";
+import configureStore from "./redux/reducers/configureStore";
+const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/* <BrowserRouter> */}
+    <Provider store={store}>
+      <App />
+    </Provider>
+    {/* </BrowserRouter> */}
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
+
+// import reportWebVitals from './reportWebVitals';
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
