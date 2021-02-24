@@ -5,12 +5,11 @@ import "./styles.css";
 
 const Products = () => {
   const products = useSelector((state) => state.productsReducer);
-  console.log(products);
   return (
     <div className="container mt-5">
-      <button class="btn btn-primary" type="button" disabled>
+      <button className="btn btn-primary" type="button" disabled>
         <span
-          class="spinner-border spinner-border-sm"
+          className="spinner-border spinner-border-sm"
           role="status"
           aria-hidden="true"
         ></span>

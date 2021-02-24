@@ -14,10 +14,8 @@ body {
     margin-top: 27px
 }
 
-/* // */
-
 .btn-material-link:hover, 
-.btn-material:not([class^="btn-material btn-material-"]):hover, 
+.btn-material:not([className^="btn-material btn-material-"]):hover, 
 .btn-material-default:hover {
     color: rgba(0,0,0,.84);}
 

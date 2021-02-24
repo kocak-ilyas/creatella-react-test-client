@@ -7,7 +7,6 @@ import SortNav from "./components/SortNav";
 
 function App() {
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
