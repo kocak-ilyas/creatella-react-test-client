@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { getProducts } from "./redux/actions";
 import "./App.css";
 import Products from "./components/Products";
+import SortNav from "./components/SortNav";
 
 function App() {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div className="App">
+      <SortNav />
       <Products />
     </div>
   );
