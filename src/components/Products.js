@@ -29,6 +29,7 @@ const Products = () => {
                 <p></p>
                 <div className="d-flex flex-column ml-2">
                   <span>Size: &nbsp; {item.size} </span>
+                  <span>Id: &nbsp; {item.id} </span>
                   <span className="text-black-50">
                     $&nbsp;
                     {(item.price * 0.01)

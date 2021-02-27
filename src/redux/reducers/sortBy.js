@@ -1,6 +1,6 @@
 import * as actionTypes from "../constants/actionTypes";
 
-export const sortByReducer = (state = "", action) => {
+export const sortByReducer = (state = "random", action) => {
   switch (action.type) {
     case actionTypes.SORT_BY:
       return action.payload;

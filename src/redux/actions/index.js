@@ -1,13 +1,33 @@
 import * as actionTypes from "../constants/actionTypes";
 import * as api from "../../api";
-// import { useSelector } from "react-redux";
 
 export const getProducts = () => async (dispatch) => {
   try {
-    const url = `http://localhost:3000/products`;
-    // const url = useSelector((state) => `http://localhost:3000/products${state.sortByReducer}`);
-
-    const { data } = await api.fetchProducts(url);
+    const { data } = await api.fetchProducts();
+    dispatch({ type: actionTypes.FETCH_PRODUCTS, payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+export const getProductsByPrice = () => async (dispatch) => {
+  try {
+    const { data } = await api.fetchProductsByPrice();
+    dispatch({ type: actionTypes.FETCH_PRODUCTS, payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+export const getProductsBySize = () => async (dispatch) => {
+  try {
+    const { data } = await api.fetchProductsBySize();
+    dispatch({ type: actionTypes.FETCH_PRODUCTS, payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+export const getProductsById = () => async (dispatch) => {
+  try {
+    const { data } = await api.fetchProductsById();
     dispatch({ type: actionTypes.FETCH_PRODUCTS, payload: data });
   } catch (error) {
     console.log(error.message);

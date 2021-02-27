@@ -1,22 +1,51 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { sortByAction } from "../redux/actions";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getProductsByPrice,
+  getProductsBySize,
+  getProductsById,
+  sortByAction,
+} from "../redux/actions";
 
 const SortNav = () => {
   const dispatch = useDispatch();
+  const sortBy = useSelector((state) => state.sortByReducer);
 
+  console.log(sortBy);
   return (
     <div>
-      <div className="tags">
+      <div className="btn-group" role="group">
         <button
-          className=""
+          type="button"
+          className={sortBy === "sortByPrice"? "btn btn-primary":"btn btn-secondary"} 
           onClick={() => {
-            dispatch(sortByAction("?_sort=size"));
+            dispatch(getProductsByPrice());
+            dispatch(sortByAction("sortByPrice"));
+          }}
+        >
+          Sort By Price
+        </button>
+        <button
+          type="button"
+          className={sortBy === "sortBySize"? "btn btn-primary":"btn btn-secondary"} 
+          onClick={() => {
+            dispatch(getProductsBySize());
+            dispatch(sortByAction("sortBySize"));
           }}
         >
           Sort By Size
         </button>
-      </div>{" "}
+        <button
+          type="button"
+          className={sortBy === "sortById"? "btn btn-primary":"btn btn-secondary"} 
+          onClick={() => {
+            dispatch(getProductsById());
+            dispatch(sortByAction("sortById"));
+          }}
+        >
+          Sort By ID
+        </button>
+      </div>
     </div>
   );
 };
