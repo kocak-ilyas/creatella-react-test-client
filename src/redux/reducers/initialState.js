@@ -1,5 +1,4 @@
 export const productsState = {
-  isLoading: true,
+  isLoading: false,
   productsTable: [],
-  message: "",
 };
