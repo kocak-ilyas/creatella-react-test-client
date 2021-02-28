@@ -10,14 +10,14 @@ import {
 const SortNav = () => {
   const dispatch = useDispatch();
   const sortBy = useSelector((state) => state.sortByReducer);
-
-  console.log(sortBy);
   return (
     <div>
       <div className="btn-group" role="group">
         <button
           type="button"
-          className={sortBy === "sortByPrice"? "btn btn-primary":"btn btn-secondary"} 
+          className={
+            sortBy === "sortByPrice" ? "btn btn-primary" : "btn btn-secondary"
+          }
           onClick={() => {
             dispatch(getProductsByPrice());
             dispatch(sortByAction("sortByPrice"));
@@ -27,7 +27,9 @@ const SortNav = () => {
         </button>
         <button
           type="button"
-          className={sortBy === "sortBySize"? "btn btn-primary":"btn btn-secondary"} 
+          className={
+            sortBy === "sortBySize" ? "btn btn-primary" : "btn btn-secondary"
+          }
           onClick={() => {
             dispatch(getProductsBySize());
             dispatch(sortByAction("sortBySize"));
@@ -37,7 +39,9 @@ const SortNav = () => {
         </button>
         <button
           type="button"
-          className={sortBy === "sortById"? "btn btn-primary":"btn btn-secondary"} 
+          className={
+            sortBy === "sortById" ? "btn btn-primary" : "btn btn-secondary"
+          }
           onClick={() => {
             dispatch(getProductsById());
             dispatch(sortByAction("sortById"));
