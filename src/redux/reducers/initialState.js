@@ -1,1 +1,5 @@
-export const productsState = { productsTable: [] };
+export const productsState = {
+  isLoading: true,
+  productsTable: [],
+  message: "",
+};

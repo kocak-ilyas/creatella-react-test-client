@@ -4,7 +4,8 @@ import * as api from "../../api";
 export const getProducts = () => async (dispatch) => {
   try {
     const { data } = await api.fetchProducts();
-    dispatch({ type: actionTypes.FETCH_PRODUCTS, payload: data });
+    dispatch({ type: actionTypes.FETCH_PRODUCTS_SUCCESS, payload: data });
+    // dispatch({ type: actionTypes.FETCH_PRODUCTS, payload: data });
   } catch (error) {
     console.log(error.message);
   }
@@ -12,7 +13,8 @@ export const getProducts = () => async (dispatch) => {
 export const getProductsByPrice = () => async (dispatch) => {
   try {
     const { data } = await api.fetchProductsByPrice();
-    dispatch({ type: actionTypes.FETCH_PRODUCTS, payload: data });
+    dispatch({ type: actionTypes.FETCH_PRODUCTS_SUCCESS, payload: data });
+    // dispatch({ type: actionTypes.FETCH_PRODUCTS, payload: data });
   } catch (error) {
     console.log(error.message);
   }
@@ -20,7 +22,8 @@ export const getProductsByPrice = () => async (dispatch) => {
 export const getProductsBySize = () => async (dispatch) => {
   try {
     const { data } = await api.fetchProductsBySize();
-    dispatch({ type: actionTypes.FETCH_PRODUCTS, payload: data });
+    dispatch({ type: actionTypes.FETCH_PRODUCTS_SUCCESS, payload: data });
+    // dispatch({ type: actionTypes.FETCH_PRODUCTS, payload: data });
   } catch (error) {
     console.log(error.message);
   }
@@ -28,7 +31,8 @@ export const getProductsBySize = () => async (dispatch) => {
 export const getProductsById = () => async (dispatch) => {
   try {
     const { data } = await api.fetchProductsById();
-    dispatch({ type: actionTypes.FETCH_PRODUCTS, payload: data });
+    dispatch({ type: actionTypes.FETCH_PRODUCTS_SUCCESS, payload: data });
+    // dispatch({ type: actionTypes.FETCH_PRODUCTS, payload: data });
   } catch (error) {
     console.log(error.message);
   }

@@ -6,9 +6,10 @@ import "./styles.css";
 
 const Products = () => {
   const products = useSelector((state) => state.productsReducer);
-
+  console.log(products.isLoading);
   return (
     <div className="container mt-5">
+      {products.isLoading?
       <button className="btn btn-primary" type="button" disabled>
         <span
           className="spinner-border spinner-border-sm"
@@ -16,25 +17,24 @@ const Products = () => {
           aria-hidden="true"
         ></span>
         &nbsp; &nbsp; Loading...
-      </button>
-      <div className="row">
-        {products.map((item) => (
-          <div className="col-md-4" key={item.id}>
+      </button>:<div className="row">
+        {products.productsTable.map((product) => (
+          <div className="col-md-4" key={product.id}>
             <div className="card p-3">
               <div className="d-flex flex-row mb-3">
                 <button
-                  style={{ fontSize: item.size }}
+                  style={{ fontSize: product.size }}
                   className="facebtn center-block btn-material btn-material-default"
                 >
-                  {item.face}
+                  {product.face}
                 </button>
                 <p></p>
                 <div className="d-flex flex-column ml-2">
-                  <span>Size: &nbsp; {item.size} </span>
-                  <span>Id: &nbsp; {item.id} </span>
+                  <span>Size: &nbsp; {product.size} </span>
+                  <span>Id: &nbsp; {product.id} </span>
                   <span className="text-black-50">
                     $&nbsp;
-                    {(item.price * 0.01)
+                    {(product.price * 0.01)
                       .toFixed(2)
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}{" "}
                   </span>
@@ -42,7 +42,7 @@ const Products = () => {
               </div>
               <div className="d-flex justify-content-between install mt-3">
                 <span>
-                  <ProductConstructorDate data={item.date} />
+                  <ProductConstructorDate dateOfProduct={product.date} />
                 </span>
                 <span className="text-primary">
                   Add to Cart &nbsp;
@@ -53,6 +53,9 @@ const Products = () => {
           </div>
         ))}
       </div>
+      }
+      
+      
       <p className="text-center text-light bg-dark">~ end of catalogue ~</p>{" "}
     </div>
   );
