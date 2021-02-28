@@ -40,7 +40,15 @@ export const getProductsById = () => async (dispatch) => {
 
 export const sortByAction = (data) => (dispatch) => {
   try {
-    dispatch({ type: actionTypes.SORT_BY, payload: data });
+    dispatch({ type: actionTypes.SORT_BY_BUTTON, payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+export const getEndOfPage = () => (dispatch) => {
+  try {
+    dispatch({ type: actionTypes.GET_END_OF_PAGE });
   } catch (error) {
     console.log(error.message);
   }

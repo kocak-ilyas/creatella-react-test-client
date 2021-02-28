@@ -3,9 +3,11 @@ import React from "react";
 import { useSelector } from "react-redux";
 import ProductConstructorDate from "./ProductConstructorDate";
 import "./styles.css";
+import Footer from "./Footer";
 
 const Products = () => {
   const products = useSelector((state) => state.productsReducer);
+
   return (
     <div className="container mt-5">
       {products.isLoading ? (
@@ -55,7 +57,7 @@ const Products = () => {
           ))}
         </div>
       )}
-      <p className="text-center text-light bg-dark">~ end of catalogue ~</p>{" "}
+      <Footer />
     </div>
   );
 };
