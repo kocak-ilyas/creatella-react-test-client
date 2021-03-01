@@ -1,6 +1,6 @@
-/* eslint-disable react/style-prop-object */
 import React from "react";
 import { useSelector } from "react-redux";
+import Loading from "./Loading";
 import ProductConstructorDate from "./ProductConstructorDate";
 import "./styles.css";
 
@@ -9,14 +9,7 @@ const Products = () => {
   return (
     <div className="container mt-5">
       {products.isLoading ? (
-        <button className="btn btn-primary" type="button" disabled>
-          <span
-            className="spinner-border spinner-border-sm"
-            role="status"
-            aria-hidden="true"
-          ></span>
-          &nbsp; &nbsp; Loading...
-        </button>
+        <Loading />
       ) : (
         <div className="row">
           {products.productsTable.map((product) => (
@@ -33,12 +26,14 @@ const Products = () => {
                   <div className="d-flex flex-column ml-2"></div>
                 </div>
                 <div className="d-flex justify-content-between install mt-3">
-                  <span>Size: &nbsp; {product.size} </span>{" "}
-                  <span className="text-black-50">
+                  <span>
                     $&nbsp;
                     {(product.price * 0.01)
                       .toFixed(2)
                       .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}{" "}
+                  </span>
+                  <span className="text-black-50">
+                    Size: &nbsp; {product.size}{" "}
                   </span>
                   <span>
                     <ProductConstructorDate dateOfProduct={product.date} />

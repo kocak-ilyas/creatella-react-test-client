@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createRandomNumbers, getProducts } from "./redux/actions";
-import "./App.css";
 import SortNav from "./components/SortNav";
 import ScrollingPage from "./components/ScrollingPage";
 
