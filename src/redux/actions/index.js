@@ -1,13 +1,15 @@
 import * as actionTypes from "../constants/actionTypes";
 import axios from "axios";
-const url = "http://localhost:3000/products?";
+const url = "http://localhost:3000/products";
+// const url = "http://localhost:3000/products?";
 
 export const getProducts = (products) => (dispatch) => {
   dispatch({ type: actionTypes.FETCH_PRODUCTS_START });
-  console.log("action", products);
+  // console.log("action", products);
   axios
     .get(
-      `${url}${products.sortBy}_page=${products.getPage}&_limit=${products.pageLimit}`
+      url
+      // `${url}${products.sortBy}_page=${products.getPage}&_limit=${products.pageLimit}`
     )
     .then((response) =>
       /* eslint-disable */
@@ -42,9 +44,10 @@ export const createRandomNumbers = () => (dispatch) => {
     console.log(error.message);
   }
 };
-export const getEndOfPage = () => (dispatch) => {
+
+export const pushScrolledPage = (scrollY) => (dispatch) => {
   try {
-    dispatch({ type: actionTypes.GET_END_OF_PAGE });
+    dispatch({ type: actionTypes.PUSH_SCROLLED_PAGE, payload: scrollY });
   } catch (error) {
     console.log(error.message);
   }

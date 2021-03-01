@@ -3,7 +3,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import ProductConstructorDate from "./ProductConstructorDate";
 import "./styles.css";
-import Footer from "./Footer";
 
 const Products = () => {
   const products = useSelector((state) => state.productsReducer);
@@ -54,7 +53,6 @@ const Products = () => {
           ))}
         </div>
       )}
-      <Footer />
     </div>
   );
 };

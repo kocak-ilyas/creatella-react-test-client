@@ -2,9 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createRandomNumbers, getProducts } from "./redux/actions";
 import "./App.css";
-import Products from "./components/Products";
 import SortNav from "./components/SortNav";
-import Advertisements from "./components/Advertisements";
+import ScrollingPage from "./components/ScrollingPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -16,10 +15,8 @@ function App() {
 
   return (
     <div className="App">
-      <Advertisements />
-      <hr />
       <SortNav />
-      <Products />
+      <ScrollingPage />
     </div>
   );
 }

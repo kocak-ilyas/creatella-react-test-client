@@ -11,10 +11,9 @@ export const productsReducer = (state = initialState.productsState, action) => {
       return { ...state, sortBy: action.payload };
     case actionTypes.CREATE_RANDOM_NUMBERS:
       return { ...state, randomNumbers: action.payload };
-    case actionTypes.GET_END_OF_PAGE:
-      return { ...state, reachedEndOfProducts: true };
+    case actionTypes.PUSH_SCROLLED_PAGE:
+      return { ...state, scrolledPage: action.payload };
     default:
       return state;
-  } 
+  }
 };
-
