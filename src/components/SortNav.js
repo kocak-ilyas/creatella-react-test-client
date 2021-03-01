@@ -1,26 +1,28 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getProductsByPrice,
-  getProductsBySize,
-  getProductsById,
-  sortByAction,
-} from "../redux/actions";
+import { getSortedProducts } from "../redux/actions";
 
 const SortNav = () => {
   const dispatch = useDispatch();
-  const sortBy = useSelector((state) => state.sortByReducer);
+  const sortBy = useSelector((state) => state.productsReducer.sortBy);
+  const sortElements = {
+    sortByPrice: "_sort=price&",
+    sortBySize: "_sort=size&",
+    sortById: "_sort=id&",
+  };
+
   return (
     <div>
       <div className="btn-group" role="group">
         <button
           type="button"
           className={
-            sortBy === "sortByPrice" ? "btn btn-primary" : "btn btn-secondary"
+            sortBy === "_sort=price&"
+              ? "btn btn-primary"
+              : "btn btn-secondary"
           }
           onClick={() => {
-            dispatch(getProductsByPrice());
-            dispatch(sortByAction("sortByPrice"));
+            dispatch(getSortedProducts(sortElements.sortByPrice));
           }}
         >
           Sort By Price
@@ -28,11 +30,12 @@ const SortNav = () => {
         <button
           type="button"
           className={
-            sortBy === "sortBySize" ? "btn btn-primary" : "btn btn-secondary"
+            sortBy === "_sort=size&"
+              ? "btn btn-primary"
+              : "btn btn-secondary"
           }
           onClick={() => {
-            dispatch(getProductsBySize());
-            dispatch(sortByAction("sortBySize"));
+            dispatch(getSortedProducts(sortElements.sortBySize));
           }}
         >
           Sort By Size
@@ -40,11 +43,12 @@ const SortNav = () => {
         <button
           type="button"
           className={
-            sortBy === "sortById" ? "btn btn-primary" : "btn btn-secondary"
+            sortBy === "_sort=id&"
+              ? "btn btn-primary"
+              : "btn btn-secondary"
           }
           onClick={() => {
-            dispatch(getProductsById());
-            dispatch(sortByAction("sortById"));
+            dispatch(getSortedProducts(sortElements.sortById));
           }}
         >
           Sort By ID

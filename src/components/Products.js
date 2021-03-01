@@ -7,7 +7,6 @@ import Footer from "./Footer";
 
 const Products = () => {
   const products = useSelector((state) => state.productsReducer);
-
   return (
     <div className="container mt-5">
       {products.isLoading ? (
@@ -32,18 +31,16 @@ const Products = () => {
                     {product.face}
                   </button>
                   <p></p>
-                  <div className="d-flex flex-column ml-2">
-                    <span>Size: &nbsp; {product.size} </span>
-                    <span>Id: &nbsp; {product.id} </span>
-                    <span className="text-black-50">
-                      $&nbsp;
-                      {(product.price * 0.01)
-                        .toFixed(2)
-                        .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}{" "}
-                    </span>
-                  </div>
+                  <div className="d-flex flex-column ml-2"></div>
                 </div>
                 <div className="d-flex justify-content-between install mt-3">
+                  <span>Size: &nbsp; {product.size} </span>{" "}
+                  <span className="text-black-50">
+                    $&nbsp;
+                    {(product.price * 0.01)
+                      .toFixed(2)
+                      .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}{" "}
+                  </span>
                   <span>
                     <ProductConstructorDate dateOfProduct={product.date} />
                   </span>

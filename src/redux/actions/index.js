@@ -1,51 +1,47 @@
 import * as actionTypes from "../constants/actionTypes";
-import * as api from "../../api";
+import axios from "axios";
+const url = "http://localhost:3000/products?";
 
-export const getProducts = () => async (dispatch) => {
+export const getProducts = (products) => (dispatch) => {
   dispatch({ type: actionTypes.FETCH_PRODUCTS_START });
-  try {
-    const { data } = await api.fetchProducts();
-    dispatch({ type: actionTypes.FETCH_PRODUCTS_SUCCESS, payload: data });
-  } catch (error) {
-    console.log(error.message);
-  }
+  console.log("action", products);
+  axios
+    .get(
+      `${url}${products.sortBy}_page=${products.getPage}&_limit=${products.pageLimit}`
+    )
+    .then((response) =>
+      /* eslint-disable */
+      dispatch({
+        type: actionTypes.FETCH_PRODUCTS_SUCCESS,
+        payload: response.data,
+      })
+    )
+    .catch((error) => console.log(error));
 };
-export const getProductsByPrice = () => async (dispatch) => {
-  dispatch({ type: actionTypes.FETCH_PRODUCTS_START });
+
+export const getSortedProducts = (sortBy) => (dispatch) => {
   try {
-    const { data } = await api.fetchProductsByPrice();
-    dispatch({ type: actionTypes.FETCH_PRODUCTS_SUCCESS, payload: data });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-export const getProductsBySize = () => async (dispatch) => {
-  dispatch({ type: actionTypes.FETCH_PRODUCTS_START });
-  try {
-    const { data } = await api.fetchProductsBySize();
-    dispatch({ type: actionTypes.FETCH_PRODUCTS_SUCCESS, payload: data });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-export const getProductsById = () => async (dispatch) => {
-  dispatch({ type: actionTypes.FETCH_PRODUCTS_START });
-  try {
-    const { data } = await api.fetchProductsById();
-    dispatch({ type: actionTypes.FETCH_PRODUCTS_SUCCESS, payload: data });
+    dispatch({ type: actionTypes.GET_SORTED_PRODUCTS, payload: sortBy });
   } catch (error) {
     console.log(error.message);
   }
 };
 
-export const sortByAction = (data) => (dispatch) => {
+export const createRandomNumbers = () => (dispatch) => {
   try {
-    dispatch({ type: actionTypes.SORT_BY_BUTTON, payload: data });
+    const array = [];
+    while (array.length < 40) {
+      const element = Math.floor(Math.random() * 1000);
+      const result = array.find((item) => item === element);
+      if (!result) {
+        array.push(element);
+      }
+    }
+    dispatch({ type: actionTypes.CREATE_RANDOM_NUMBERS, payload: array });
   } catch (error) {
     console.log(error.message);
   }
 };
-
 export const getEndOfPage = () => (dispatch) => {
   try {
     dispatch({ type: actionTypes.GET_END_OF_PAGE });
