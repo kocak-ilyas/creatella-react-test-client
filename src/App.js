@@ -1,21 +1,42 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createRandomNumbers, getProducts } from "./redux/actions";
+import {
+  addProducts,
+  createRandomNumbers,
+  getProducts,
+  pushScrolledPage,
+} from "./redux/actions";
 import SortNav from "./components/SortNav";
-import ScrollingPage from "./components/ScrollingPage";
+import Products from "./components/Products";
+import Footer from "./components/Footer";
+import Advertisements from "./components/Advertisements";
+let maxScrolled = 0;
 
 function App() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.productsReducer);
+  window.addEventListener("scroll", () => {
+    let scrolledArea = Math.ceil(window.scrollY / 700);
+    if (maxScrolled < scrolledArea) {
+      maxScrolled = scrolledArea;
+      dispatch(pushScrolledPage(maxScrolled));
+    }
+  });
   useEffect(() => {
-    dispatch(getProducts(products));
+    dispatch(getProducts(products.sortBy));
     dispatch(createRandomNumbers());
-  }, [dispatch, products.sortBy]);
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(addProducts(maxScrolled, products));
+  }, [dispatch, maxScrolled]);
 
   return (
     <div className="App">
       <SortNav />
-      <ScrollingPage />
+      <Products />
+      <Footer />
+      {/* <Advertisements /> */}
     </div>
   );
 }

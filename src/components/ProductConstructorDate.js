@@ -24,4 +24,5 @@ const ProductConstructorDate = (product) => {
     </div>
   );
 };
+
 export default ProductConstructorDate;

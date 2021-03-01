@@ -10,7 +10,7 @@ export const productsReducer = (state = initialState.productsState, action) => {
     case actionTypes.ADD_PRODUCTS:
       return {
         ...state,
-        productsTable: [...state.productsTable, action.payload],
+        productsTable: [...state.productsTable, ...action.payload],
       };
     case actionTypes.GET_SORTED_PRODUCTS:
       return { ...state, sortBy: action.payload };

@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSortedProducts } from "../redux/actions";
-
+import { getSortedProducts, getProducts } from "../redux/actions";
 const SortNav = () => {
   const dispatch = useDispatch();
   const sortBy = useSelector((state) => state.productsReducer.sortBy);
@@ -10,7 +9,9 @@ const SortNav = () => {
     sortBySize: "_sort=size&",
     sortById: "_sort=id&",
   };
-
+  useEffect(() => {
+    dispatch(getProducts(sortBy));
+  }, [dispatch, sortBy]);
   return (
     <div>
       <div className="btn-group" role="group">

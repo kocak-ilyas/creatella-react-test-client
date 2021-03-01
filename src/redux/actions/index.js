@@ -1,15 +1,10 @@
 import * as actionTypes from "../constants/actionTypes";
 import axios from "axios";
-const url = "http://localhost:3000/products?";
-// const url = "http://localhost:3000/products";
 
-export const getProducts = (products) => (dispatch) => {
+export const getProducts = (sortBy) => (dispatch) => {
   dispatch({ type: actionTypes.FETCH_PRODUCTS_START });
   axios
-    .get(
-      `${url}${products.sortBy}_page=${products.getPage}&_limit=${products.pageLimit}`
-      // url
-    )
+    .get(`http://localhost:3000/products?${sortBy}_page=1&_limit=$20`)
     .then((response) =>
       dispatch({
         type: actionTypes.FETCH_PRODUCTS_SUCCESS,
@@ -18,20 +13,23 @@ export const getProducts = (products) => (dispatch) => {
     )
     .catch((error) => console.log(error));
 };
-export const addProducts = (products) => (dispatch) => {
-  console.log("addActions", products);
-  // axios
-  //   .get(
-  //     `${url}${products.sortBy}_page=${products.getPage}&_limit=${products.pageLimit}`
-  //   )
-  //   .then((response) =>
-  //     /* eslint-disable */
-  //     dispatch({
-  //       type: actionTypes.ADD_PRODUCTS,
-  //       payload: response.data,
-  //     })
-  //   )
-  //   .catch((error) => console.log(error));
+export const addProducts = (maxScrolled, products) => (dispatch) => {
+  if (maxScrolled > 0 && maxScrolled < 25) {
+    axios
+      .get(
+        `http://localhost:3000/products?${products.sortBy}_page=${
+          maxScrolled + 1
+        }&_limit=20`
+      )
+      .then((response) =>
+        // eslint-disable-next-line no-unused-expressions
+        dispatch({
+          type: actionTypes.ADD_PRODUCTS,
+          payload: response.data,
+        })
+      )
+      .catch((error) => console.log(error));
+  }
 };
 
 export const getSortedProducts = (sortBy) => (dispatch) => {
@@ -57,9 +55,9 @@ export const createRandomNumbers = () => (dispatch) => {
   }
 };
 
-export const pushScrolledPage = (scrollY) => (dispatch) => {
+export const pushScrolledPage = (maxScrolled) => (dispatch) => {
   try {
-    dispatch({ type: actionTypes.PUSH_SCROLLED_PAGE, payload: scrollY });
+    dispatch({ type: actionTypes.PUSH_SCROLLED_PAGE, payload: maxScrolled });
   } catch (error) {
     console.log(error.message);
   }
